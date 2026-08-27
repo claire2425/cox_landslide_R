@@ -124,6 +124,9 @@ mk_raster<- function(vec) {
   r<- rs[[1]]; r[]<- NA_real_; r[ok]<- vec; r
 }
 r_modal<- mk_raster(modal_class)
+# label the five classes by name (matches the text: Very Low ... Very High)
+levels(r_modal)<- data.frame(value = 1:5,
+                             class = c("Very Low", "Low", "Moderate", "High", "Very High"))
 r_pmod<- mk_raster(p_modal)
 r_phigh<- mk_raster(p_high)
 r_ent<- mk_raster(ent)
@@ -137,8 +140,8 @@ saveRDS(r_ent,   "output/conf_entropy.rds")
 dir.create("output/figures", showWarnings = FALSE, recursive = TRUE)
 png("output/figures/confidence_map.png", width = 1800, height = 900, res = 150)
 op<- par(mfrow = c(1, 2), mar = c(2, 2, 3, 4))
-plot(r_modal, main = "Posterior modal hazard class",
-     col = hcl.colors(5, "YlOrRd", rev = TRUE), type = "classes")
+plot(r_modal, main = "Posterior modal susceptibility class",
+     col = hcl.colors(5, "YlOrRd", rev = TRUE))
 plot(r_pmod,  main = "Decision confidence  P(modal class)",
      col = hcl.colors(20, "Blues", rev = TRUE))
 par(op); dev.off()
@@ -161,3 +164,4 @@ cat("\nConfidence summary:\n"); print(summ)
 # where the SoilType flip ambiguity lived. Inspect r_pmod against the Soil layer.
 
 cat("\n12_hazard_posterior.R complete.\n")
+

@@ -69,8 +69,10 @@ if (file.exists(ndvi_tif)) {
 }
 
 # WO1 as published scores high NDVI as high hazard (bin5 -> 3). But denser vegetation usually stabilises
-# slopes (so it should be lower hazard), and the baseline validation (AUC 0.517, a U-shaped lift) tells me
-# this factor is reversed. So NDVI_DIRECTION lets me switch:
+# slopes (so it should be lower hazard). The NDVI direction is deliberately reversed within 
+# the non-restricted classes because lower NDVI represents sparser vegetation and weaker vegetation-mediated
+# slope stabilisation. The alternative WO1 direction is retained as a diagnostic comparison rather than 
+# selected by maximising AUC. So NDVI_DIRECTION lets me switch:
 #   "wo1"        -> keep WO1.txt as-is (high NDVI -> hazard 3)
 #   "ecological" -> the corrected version I use: low NDVI (sparse veg) -> high hazard
 

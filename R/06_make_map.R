@@ -31,7 +31,7 @@ cat(sprintf("Detected tmap %s -> using %s syntax.\n",
 if (tmap_v4) {
   fig_a<- tm_shape(hazard_class) +
     tm_raster(col.scale = tm_scale_categorical(values = pal),
-              col.legend = tm_legend(title = "Landslide hazard")) +
+              col.legend = tm_legend(title = "Susceptibility")) +
     tm_shape(boundary) + tm_borders(col = "black", lwd = 1.2) +
     tm_shape(camp)     + tm_borders(col = "blue",  lwd = 1.5) +
     tm_title("Cox's Bazar - Landslide Susceptibility (baseline AHP)") +
@@ -40,7 +40,7 @@ if (tmap_v4) {
     tm_layout(legend.outside = TRUE, frame = TRUE)
 } else {
   fig_a<- tm_shape(hazard_class) +
-    tm_raster(palette = pal, title = "Landslide hazard", labels = labs, style = "cat") +
+    tm_raster(palette = pal, title = "Susceptibility", labels = labs, style = "cat") +
     tm_shape(boundary) + tm_borders(col = "black", lwd = 1.2) +
     tm_shape(camp)     + tm_borders(col = "blue",  lwd = 1.5) +
     tm_layout(main.title = "Cox's Bazar - Landslide Susceptibility (baseline AHP)",
@@ -55,7 +55,7 @@ cat("Saved: output/figures/hazard_map.png\n")
 if (tmap_v4) {
   fig_b<- tm_shape(hazard_class) +
     tm_raster(col.scale = tm_scale_categorical(values = pal),
-              col.legend = tm_legend(title = "Landslide hazard")) +
+              col.legend = tm_legend(title = "Susceptibility")) +
     tm_shape(boundary) + tm_borders(col = "black", lwd = 1.2) +
     tm_shape(camp)     + tm_borders(col = "blue",  lwd = 1.5) +
     tm_shape(inv_pts)  + tm_dots(fill = "black", size = 0.15) +
@@ -64,7 +64,7 @@ if (tmap_v4) {
     tm_layout(legend.outside = TRUE, frame = TRUE)
 } else {
   fig_b<- tm_shape(hazard_class) +
-    tm_raster(palette = pal, title = "Landslide hazard", labels = labs, style = "cat") +
+    tm_raster(palette = pal, title = "Susceptibility", labels = labs, style = "cat") +
     tm_shape(boundary) + tm_borders(col = "black", lwd = 1.2) +
     tm_shape(camp)     + tm_borders(col = "blue",  lwd = 1.5) +
     tm_shape(inv_pts)  + tm_dots(col = "black", size = 0.15) +

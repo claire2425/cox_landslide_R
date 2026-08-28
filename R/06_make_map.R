@@ -33,7 +33,8 @@ if (tmap_v4) {
     tm_raster(col.scale = tm_scale_categorical(values = pal),
               col.legend = tm_legend(title = "Landslide hazard")) +
     tm_shape(boundary) + tm_borders(col = "black", lwd = 1.2) +
-    tm_title("Cox's Bazar - Landslide Hazard (baseline AHP)") +
+    tm_shape(camp)     + tm_borders(col = "blue",  lwd = 1.5) +
+    tm_title("Cox's Bazar - Landslide Susceptibility (baseline AHP)") +
     tm_scalebar(position = c("left","bottom")) +
     tm_compass(position = c("right","top")) +
     tm_layout(legend.outside = TRUE, frame = TRUE)
@@ -41,7 +42,8 @@ if (tmap_v4) {
   fig_a<- tm_shape(hazard_class) +
     tm_raster(palette = pal, title = "Landslide hazard", labels = labs, style = "cat") +
     tm_shape(boundary) + tm_borders(col = "black", lwd = 1.2) +
-    tm_layout(main.title = "Cox's Bazar - Landslide Hazard (baseline AHP)",
+    tm_shape(camp)     + tm_borders(col = "blue",  lwd = 1.5) +
+    tm_layout(main.title = "Cox's Bazar - Landslide Susceptibility (baseline AHP)",
               main.title.size = 1.0, legend.outside = TRUE, frame = TRUE) +
     tm_scale_bar(position = c("left","bottom")) +
     tm_compass(position = c("right","top"))

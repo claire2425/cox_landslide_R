@@ -1,6 +1,7 @@
 # AHP-based Landslide Susceptibility Mapping with Uncertainty Quantification — Cox's Bazar, Bangladesh
 
 **MSc Data Science dissertation · UCL Department of Statistical Science · 2026**
+
 R · Stan · Bayesian inference · Monte Carlo simulation · SMAA
 
 Landslide susceptibility maps built with the Analytic Hierarchy Process (AHP) rely on expert judgements, which are usually treated as exact. This project asks how far those judgements can be trusted and what that means for the map. Starting from a **published expert AHP weighting**, it estimates the noise in the expert judgements with a Bayesian model and propagates it through the model, producing a **per-pixel decision-confidence layer** instead of a single deterministic map.
